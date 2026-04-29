@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Sékou Touré — Archives Numériques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#8B6914;--gold-l:#C4973A;--gold-p:#F5EDD6;
+  --ink:#160F00;--ink-m:#3A2800;--ink-s:#6B5320;
+  --cream:#FAF7EF;--cream-d:#F2EAD5;
+  --white:#FEFCF7;--border:#D9C89A;--border-s:#EDE0BC;
+  --fd:'Cormorant Garamond','Georgia',serif;
+  --fb:'Libre Baskerville','Georgia',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--ink);line-height:1.7;font-size:16px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(254,252,247,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-s);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px}
+.nav-logo{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-family:var(--fb);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-s);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.lw{display:flex;gap:4px}
+.lb{background:none;border:1px solid var(--border);padding:.2rem .55rem;cursor:pointer;font-family:var(--fb);font-size:.7rem;color:var(--ink-s);transition:all .2s}
+.lb.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+.hero{padding-top:58px;min-height:100vh;display:grid;grid-template-columns:50% 50%}
+.hero-l{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:6rem 4.5rem 6rem 5.5rem;position:relative;overflow:hidden}
+.hero-l::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(196,151,58,.025) 60px,rgba(196,151,58,.025) 61px);pointer-events:none}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100vh;object-fit:cover;object-position:center top;display:block;filter:grayscale(15%) contrast(1.08)}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(22,15,0,.5),transparent 35%),linear-gradient(to top,rgba(22,15,0,.4),transparent 45%)}
+.hero-img-cr{position:absolute;bottom:.6rem;right:.8rem;font-size:.58rem;color:rgba(250,247,239,.3);letter-spacing:.08em;text-transform:uppercase;z-index:2}
+.h-tag{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);margin-bottom:1.8rem;opacity:0;animation:fu .7s .1s forwards}
+.h-name{font-family:var(--fd);font-size:4.8rem;font-weight:300;line-height:1.02;color:var(--cream);margin-bottom:.6rem;opacity:0;animation:fu .8s .2s forwards}
+.h-name em{font-style:italic;color:var(--gold-l)}
+.h-dates{font-family:var(--fd);font-size:.92rem;color:var(--gold-l);letter-spacing:.18em;margin-bottom:2.2rem;opacity:0;animation:fu .7s .3s forwards}
+.h-rule{width:36px;height:1px;background:var(--gold);margin-bottom:1.8rem;opacity:0;animation:fu .6s .4s forwards}
+.h-desc{font-size:.86rem;line-height:1.85;color:rgba(250,247,239,.6);max-width:380px;margin-bottom:2.5rem;opacity:0;animation:fu .7s .5s forwards}
+.h-quote{border-left:2px solid var(--gold);padding-left:1.5rem;opacity:0;animation:fu .7s .6s forwards}
+.h-quote p{font-family:var(--fd);font-size:1.2rem;font-style:italic;font-weight:300;color:rgba(250,247,239,.85);line-height:1.5;margin-bottom:.4rem}
+.h-quote span{font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l)}
+.h-cta{position:absolute;bottom:2.5rem;left:5.5rem;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,247,239,.4);display:flex;align-items:center;gap:.75rem;text-decoration:none;transition:color .2s;opacity:0;animation:fu .7s .8s forwards}
+.h-cta::before{content:'';display:block;width:28px;height:1px;background:currentColor}
+.h-cta:hover{color:var(--gold-l)}
+
+section{padding:5.5rem 0}
+.wrap{max-width:1140px;margin:0 auto;padding:0 3rem}
+.sh{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:3.5rem}
+.sn{font-family:var(--fd);font-size:.75rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0}
+.st{font-family:var(--fd);font-size:2.2rem;font-weight:400;color:var(--ink);border-bottom:1px solid var(--border-s);padding-bottom:.8rem;flex:1}
+
+#bio{background:var(--white)}
+.bio-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.bio-text p{font-size:.92rem;line-height:1.95;color:var(--ink-m);margin-bottom:1.1rem}
+.bio-text strong{color:var(--ink)}
+.tl-item{display:grid;grid-template-columns:72px 1fr;gap:1.2rem;padding:1rem 0;border-bottom:1px solid var(--border-s)}
+.tl-item:last-child{border-bottom:none}
+.tl-y{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--gold)}
+.tl-e{font-size:.84rem;color:var(--ink-m);line-height:1.6}
+
+#galerie{background:var(--cream-d)}
+.gtabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.gtab{padding:.35rem .9rem;border:1px solid var(--border);background:transparent;font-family:var(--fb);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-s);cursor:pointer;transition:all .2s}
+.gtab:hover,.gtab.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.gsec{display:none}.gsec.active{display:block}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.pgrid.w3{grid-template-columns:repeat(3,1fr)}
+.pc{position:relative;overflow:hidden;background:var(--ink);cursor:pointer}
+.pc.p43{aspect-ratio:4/3}.pc.p34{aspect-ratio:3/4}.pc.p11{aspect-ratio:1/1}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s,opacity .3s;opacity:.88;filter:sepia(.1)}
+.pc:hover img{transform:scale(1.05);opacity:1;filter:sepia(0)}
+.po{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(22,15,0,.88));padding:1rem .85rem .75rem;transform:translateY(5px);transition:transform .3s}
+.pc:hover .po{transform:translateY(0)}
+.po-cap{font-size:.7rem;color:rgba(250,247,239,.85);line-height:1.4;margin-bottom:.18rem}
+.po-yr{font-family:var(--fd);font-size:.8rem;color:var(--gold-l);letter-spacing:.07em}
+.po-cr{font-size:.57rem;color:rgba(250,247,239,.32);text-transform:uppercase;margin-top:.12rem}
+.g-note{font-size:.72rem;color:var(--ink-s);font-style:italic;border-left:2px solid var(--border);padding-left:1rem;margin-top:1rem}
+.g-note a{color:var(--gold);text-decoration:none}
+
+.lbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(10,6,0,.95);align-items:center;justify-content:center;padding:2rem}
+.lbox.open{display:flex}
+.lb-in{max-width:960px;width:100%;text-align:center}
+.lb-in img{max-width:100%;max-height:74vh;object-fit:contain;display:block;margin:0 auto 1rem}
+.lb-cap{font-family:var(--fd);font-size:1.1rem;font-style:italic;color:var(--cream);margin-bottom:.3rem}
+.lb-cr{font-size:.63rem;color:rgba(250,247,239,.32);letter-spacing:.1em;text-transform:uppercase}
+.lb-x{position:fixed;top:1.5rem;right:2rem;background:none;border:1px solid rgba(250,247,239,.2);color:rgba(250,247,239,.55);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .8rem;cursor:pointer;font-family:var(--fb)}
+.lb-nav{display:flex;justify-content:center;gap:1rem;margin-top:.9rem}
+.lb-btn{background:none;border:1px solid rgba(250,247,239,.15);color:rgba(250,247,239,.5);padding:.28rem .85rem;cursor:pointer;font-family:var(--fb);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
+.lb-btn:hover{background:rgba(250,247,239,.06);color:var(--cream)}
+.lb-ct{font-size:.68rem;color:rgba(250,247,239,.28);margin-top:.45rem;letter-spacing:.1em}
+
+#quotes{background:var(--cream)}
+.qfs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.qf{padding:.35rem .9rem;border:1px solid var(--border);background:transparent;font-family:var(--fb);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-s);cursor:pointer;transition:all .2s}
+.qf:hover,.qf.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.qg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem}
+.qc{background:var(--white);border:1px solid var(--border-s);padding:1.75rem 1.75rem 1.4rem;transition:border-color .25s,transform .25s}
+.qc:hover{border-color:var(--gold);transform:translateY(-3px)}
+.qc::before{content:'\201C';font-family:var(--fd);font-size:3.2rem;color:var(--gold-p);line-height:1;display:block;margin-bottom:-.35rem}
+.qt{font-family:var(--fd);font-size:1.05rem;font-style:italic;line-height:1.65;color:var(--ink);margin-bottom:1.25rem}
+.qm{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-s);padding-top:.8rem;gap:.5rem}
+.qs{font-size:.63rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold)}
+.qth{font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-s);border:1px solid var(--border-s);padding:.15rem .4rem;flex-shrink:0}
+
+#speech{background:var(--white)}
+.sp-meta{display:flex;gap:3rem;align-items:flex-start;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.sp-day{font-family:var(--fd);font-size:4rem;font-weight:300;color:var(--gold);line-height:.9;margin-bottom:.2rem}
+.sp-mo{font-family:var(--fd);font-size:1rem;color:var(--gold-l);letter-spacing:.1em;text-transform:uppercase}
+.sp-info h3{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:.4rem}
+.sp-info p{font-size:.8rem;color:var(--ink-s);margin-bottom:.2rem}
+.sp-body{max-width:740px;margin:0 auto}
+.sp-body p{font-size:.92rem;line-height:1.95;color:var(--ink-m);margin-bottom:1.3rem}
+.sp-hl{font-family:var(--fd);font-size:1.08rem;font-style:italic;border-left:2px solid var(--gold);padding-left:1.75rem;margin:2rem 0;color:var(--ink);line-height:1.75}
+.sp-st{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--ink);margin:2.5rem 0 1rem}
+.sp-tag{display:inline-flex;font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-s);border:1px solid var(--border);padding:.25rem .65rem;margin-top:1.5rem}
+
+#lib{background:var(--ink)}
+#lib .st{color:var(--cream);border-bottom-color:rgba(212,184,122,.2)}
+#lib .sn{color:var(--gold-l)}
+.lg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem}
+.lc{background:rgba(250,247,239,.04);border:1px solid rgba(212,184,122,.18);padding:1.75rem 1.6rem;transition:all .25s}
+.lc:hover{background:rgba(250,247,239,.07);border-color:rgba(212,184,122,.45)}
+.l-sp{width:3px;height:32px;background:var(--gold);margin-bottom:1.4rem}
+.l-t{font-family:var(--fd);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:.35rem;line-height:1.3}
+.l-sub{font-size:.76rem;color:rgba(250,247,239,.4);margin-bottom:1.3rem;line-height:1.55}
+.l-ed{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l)}
+.l-st{display:inline-block;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .45rem;margin-top:.55rem}
+.ok{color:#5DCAA5;border:1px solid rgba(93,202,165,.3)}
+.soon{color:rgba(250,247,239,.3);border:1px solid rgba(250,247,239,.1)}
+
+footer{background:var(--ink);border-top:1px solid rgba(212,184,122,.12);padding:4rem 0 2.5rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(212,184,122,.1)}
+.f-br{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--cream);margin-bottom:.8rem}
+.f-de{font-size:.82rem;color:rgba(250,247,239,.38);line-height:1.8}
+.f-h{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:1rem}
+.f-ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.f-ul a{font-size:.8rem;color:rgba(250,247,239,.4);text-decoration:none;transition:color .2s}
+.f-ul a:hover{color:var(--gold-l)}
+.fb{display:flex;justify-content:space-between;align-items:center}
+.f-cp{font-size:.7rem;color:rgba(250,247,239,.22)}
+.f-mv{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,151,58,.22);padding:.2rem .6rem}
+
+[data-l]{display:none}
+body.fr [data-l="fr"],body.en [data-l="en"]{display:block}
+body.fr [data-l="fr"].i,body.en [data-l="en"].i{display:inline}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body class="fr">
+
+<nav>
+  <a href="#" class="nav-logo">Ahmed Sékou Touré</a>
+  <ul class="nav-links">
+    <li><a href="#bio"><span data-l="fr" class="i">Biographie</span><span data-l="en" class="i">Biography</span></a></li>
+    <li><a href="#galerie"><span data-l="fr" class="i">Galerie</span><span data-l="en" class="i">Gallery</span></a></li>
+    <li><a href="#quotes"><span data-l="fr" class="i">Citations</span><span data-l="en" class="i">Quotes</span></a></li>
+    <li><a href="#speech"><span data-l="fr" class="i">Discours 1958</span><span data-l="en" class="i">1958 Speech</span></a></li>
+    <li><a href="#lib"><span data-l="fr" class="i">Bibliothèque</span><span data-l="en" class="i">Library</span></a></li>
+  </ul>
+  <div class="lw">
+    <button class="lb active" onclick="setL('fr',this)">FR</button>
+    <button class="lb" onclick="setL('en',this)">EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-l">
+    <p class="h-tag"><span data-l="fr" class="i">Archives Numériques — République de Guinée</span><span data-l="en" class="i">Digital Archives — Republic of Guinea</span></p>
+    <h1 class="h-name">Ahmed<br><em>Sékou</em><br>Touré</h1>
+    <p class="h-dates">1922 — 1984</p>
+    <div class="h-rule"></div>
+    <p class="h-desc" data-l="fr">Père de l'indépendance guinéenne, penseur panafricain, premier président de la République de Guinée. Cette plateforme préserve et diffuse son œuvre, ses discours et sa pensée politique.</p>
+    <p class="h-desc" data-l="en">Father of Guinean independence, pan-African thinker, first President of the Republic of Guinea. This platform preserves and disseminates his works, speeches and political thought.</p>
+    <div class="h-quote">
+      <p data-l="fr">« Nous préférons la Pauvreté dans la Liberté à la Richesse dans l'esclavage. »</p>
+      <p data-l="en">"We prefer poverty in freedom to riches in slavery."</p>
+      <span data-l="fr" class="i">Conakry, 25 août 1958</span><span data-l="en" class="i">Conakry, August 25, 1958</span>
+    </div>
+    <a href="#bio" class="h-cta"><span data-l="fr" class="i">Explorer les archives</span><span data-l="en" class="i">Explore the archives</span></a>
+  </div>
+  <div class="hero-img">
+    <img src="photos/p_poing.jpg" alt="Ahmed Sékou Touré — poing levé">
+    <span class="hero-img-cr">© Getty Images</span>
+  </div>
+</div>
+
+<section id="bio">
+<div class="wrap">
+  <div class="sh"><span class="sn">01</span><h2 class="st" data-l="fr">Biographie</h2><h2 class="st" data-l="en">Biography</h2></div>
+  <div class="bio-g">
+    <div class="bio-text">
+      <p data-l="fr">Né le <strong>9 janvier 1922</strong> à Faranah, Ahmed Sékou Touré s'impose comme figure centrale du mouvement anticolonial ouest-africain. Petit-fils du résistant <strong>Almamy Samory Touré</strong>, il porte l'héritage d'une longue lutte pour la dignité africaine.</p>
+      <p data-l="en">Born on <strong>January 9, 1922</strong> in Faranah, Ahmed Sékou Touré established himself as a central figure of the West African anti-colonial movement. Grandson of resistance fighter <strong>Almamy Samory Touré</strong>, he carried the legacy of a long struggle for African dignity.</p>
+      <p data-l="fr">Militant syndical de la CGT dès 1945, il fonde le <strong>Parti Démocratique de Guinée</strong> en 1947 et est élu maire de Conakry en 1952, puis député à l'Assemblée nationale française en 1956.</p>
+      <p data-l="en">A CGT trade union activist from 1945, he founded the <strong>Democratic Party of Guinea</strong> in 1947, was elected Mayor of Conakry in 1952, and then deputy to the French National Assembly in 1956.</p>
+      <p data-l="fr">Le <strong>25 août 1958</strong>, il prononce devant le général de Gaulle à Conakry le discours qui changera l'histoire du continent. Le <strong>28 septembre</strong>, la Guinée vote <em>Non</em> — seul territoire d'Afrique subsaharienne à refuser. L'indépendance est proclamée le <strong>2 octobre 1958</strong>.</p>
+      <p data-l="en">On <strong>August 25, 1958</strong>, he delivered before General de Gaulle in Conakry the speech that changed the continent's history. On <strong>September 28</strong>, Guinea voted <em>No</em> — the only sub-Saharan African territory to refuse. Independence was proclaimed on <strong>October 2, 1958</strong>.</p>
+      <p data-l="fr">Sa pensée, consignée dans les <strong>vingt-six tomes de <em>L'Afrique en Marche</em></strong>, articule indépendance culturelle, socialisme démocratique et panafricanisme en une vision cohérente du devenir du continent.</p>
+      <p data-l="en">His thought, recorded in the <strong>twenty-six volumes of <em>L'Afrique en Marche</em></strong>, articulates cultural independence, democratic socialism and pan-Africanism into a coherent vision of the continent's future.</p>
+    </div>
+    <div>
+      <div class="tl-item"><div class="tl-y">1922</div><div class="tl-e" data-l="fr">Naissance à Faranah, Guinée française</div><div class="tl-e" data-l="en">Born in Faranah, French Guinea</div></div>
+      <div class="tl-item"><div class="tl-y">1945</div><div class="tl-e" data-l="fr">Militant CGT — lutte syndicale en Afrique de l'Ouest</div><div class="tl-e" data-l="en">CGT militant — trade union struggle in West Africa</div></div>
+      <div class="tl-item"><div class="tl-y">1947</div><div class="tl-e" data-l="fr">Fondation du Parti Démocratique de Guinée (PDG)</div><div class="tl-e" data-l="en">Founding of the Democratic Party of Guinea (PDG)</div></div>
+      <div class="tl-item"><div class="tl-y">1952</div><div class="tl-e" data-l="fr">Élu maire de Conakry</div><div class="tl-e" data-l="en">Elected Mayor of Conakry</div></div>
+      <div class="tl-item"><div class="tl-y">1958</div><div class="tl-e" data-l="fr">Discours devant de Gaulle (25 août) · Vote Non (28 sept.) · Indépendance (2 oct.)</div><div class="tl-e" data-l="en">Speech before de Gaulle (Aug 25) · No vote (Sept 28) · Independence (Oct 2)</div></div>
+      <div class="tl-item"><div class="tl-y">1958–84</div><div class="tl-e" data-l="fr">Premier Président de la République de Guinée</div><div class="tl-e" data-l="en">First President of the Republic of Guinea</div></div>
+      <div class="tl-item"><div class="tl-y">1959</div><div class="tl-e" data-l="fr">Tournées officielles : USA, Royaume-Uni, Inde, URSS</div><div class="tl-e" data-l="en">Official tours: USA, United Kingdom, India, USSR</div></div>
+      <div class="tl-item"><div class="tl-y">1962</div><div class="tl-e" data-l="fr">VIe Congrès du PDG — <em>L'Afrique en Marche</em></div><div class="tl-e" data-l="en">6th PDG Congress — <em>L'Afrique en Marche</em></div></div>
+      <div class="tl-item"><div class="tl-y">1982</div><div class="tl-e" data-l="fr">Réconciliation avec la France — visite de Mitterrand à Conakry</div><div class="tl-e" data-l="en">Reconciliation with France — Mitterrand visits Conakry</div></div>
+      <div class="tl-item"><div class="tl-y">1984</div><div class="tl-e" data-l="fr">Décès à Cleveland, États-Unis, le 26 mars</div><div class="tl-e" data-l="en">Death in Cleveland, United States, March 26</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="galerie">
+<div class="wrap">
+  <div class="sh"><span class="sn">02</span><h2 class="st" data-l="fr">Galerie photographique</h2><h2 class="st" data-l="en">Photo Gallery</h2></div>
+
+  <div class="gtabs">
+    <button class="gtab on" onclick="showTab('portraits',this)"><span data-l="fr" class="i">Portraits</span><span data-l="en" class="i">Portraits</span></button>
+    <button class="gtab" onclick="showTab('diplomatie',this)"><span data-l="fr" class="i">Diplomatie</span><span data-l="en" class="i">Diplomacy</span></button>
+    <button class="gtab" onclick="showTab('afrique',this)"><span data-l="fr" class="i">Panafricanisme</span><span data-l="en" class="i">Pan-Africanism</span></button>
+    <button class="gtab" onclick="showTab('guinee',this)"><span data-l="fr" class="i">Guinée</span><span data-l="en" class="i">Guinea</span></button>
+    <button class="gtab" onclick="showTab('famille',this)"><span data-l="fr" class="i">Famille</span><span data-l="en" class="i">Family</span></button>
+  </div>
+
+  <div class="gsec active" id="tab-portraits">
+    <div class="pgrid w3">
+      <div class="pc p43" onclick="openLb('portraits',0)"><img src="photos/p_souriant_micro.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Conférence de presse — sourire et assurance</p><p class="po-cap" data-l="en">Press conference — confidence and ease</p><p class="po-yr">c. 1970</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('portraits',1)"><img src="photos/p_portrait_boubou.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Portrait officiel en boubou</p><p class="po-cap" data-l="en">Official portrait in boubou</p><p class="po-yr">c. 1960</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('portraits',2)"><img src="photos/p_portrait_debout.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Portrait debout — Conakry</p><p class="po-cap" data-l="en">Standing portrait — Conakry</p><p class="po-yr">c. 1962</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('portraits',3)"><img src="photos/p_portrait_micro.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Portrait au micro — regard intense</p><p class="po-cap" data-l="en">Portrait at the microphone — intense gaze</p><p class="po-yr">c. 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('portraits',4)"><img src="photos/p_independance58.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Proclamation de l'indépendance — 4 octobre 1958</p><p class="po-cap" data-l="en">Proclamation of independence — October 4, 1958</p><p class="po-yr">1958</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('portraits',5)"><img src="photos/p_reunion59.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Réunion gouvernementale — premières semaines de l'indépendance</p><p class="po-cap" data-l="en">Government meeting — first weeks of independence</p><p class="po-yr">Février 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('portraits',6)"><img src="photos/img16.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Portrait jeune en conversation — années 1950</p><p class="po-cap" data-l="en">Young portrait in conversation — 1950s</p><p class="po-yr">c. 1958</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('portraits',7)"><img src="photos/p_portrait_assis.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Portrait officiel — debut de présidence</p><p class="po-cap" data-l="en">Official portrait — early presidency</p><p class="po-yr">c. 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('portraits',8)"><img src="photos/p_us_assis.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Visite aux États-Unis</p><p class="po-cap" data-l="en">Visit to the United States</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+    </div>
+  </div>
+
+  <div class="gsec" id="tab-diplomatie">
+    <div class="pgrid w3">
+      <div class="pc p43" onclick="openLb('diplomatie',0)"><img src="photos/p_kennedy_car.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Dans la Lincoln de Kennedy — Washington</p><p class="po-cap" data-l="en">In Kennedy's Lincoln — Washington</p><p class="po-yr">1962</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('diplomatie',1)"><img src="photos/p_reagan.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec le Président Reagan — Maison Blanche</p><p class="po-cap" data-l="en">With President Reagan — White House</p><p class="po-yr">1982</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',2)"><img src="photos/p_mitterrand.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec François Mitterrand — réconciliation franco-guinéenne</p><p class="po-cap" data-l="en">With François Mitterrand — Franco-Guinean reconciliation</p><p class="po-yr">1982</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',3)"><img src="photos/p_giscard_face.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Valéry Giscard d'Estaing — visite officielle</p><p class="po-cap" data-l="en">With Valéry Giscard d'Estaing — official visit</p><p class="po-yr">1978</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',4)"><img src="photos/p_juancarlos_avion.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Accueil du Roi Juan Carlos d'Espagne à Conakry</p><p class="po-cap" data-l="en">Welcoming King Juan Carlos of Spain in Conakry</p><p class="po-yr">1979</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',5)"><img src="photos/p_juancarlos_diner.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Dîner de gala avec le Roi Juan Carlos et la Reine Sofia</p><p class="po-cap" data-l="en">State dinner with King Juan Carlos and Queen Sofia</p><p class="po-yr">1979</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p34" onclick="openLb('diplomatie',6)"><img src="photos/p_hussein.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec le Roi Hussein de Jordanie — Amman</p><p class="po-cap" data-l="en">With King Hussein of Jordan — Amman</p><p class="po-yr">1964</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',7)"><img src="photos/p_nehru.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Jawaharlal Nehru — Premier ministre de l'Inde</p><p class="po-cap" data-l="en">With Jawaharlal Nehru — Prime Minister of India</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',8)"><img src="photos/p_delegation_paris.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Délégation guinéenne en réunion officielle — Paris</p><p class="po-cap" data-l="en">Guinean delegation at official meeting — Paris</p><p class="po-yr">1958</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',9)"><img src="photos/p_tapis_rouge.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Revue des troupes sur tapis rouge — Conakry</p><p class="po-cap" data-l="en">Troop review on red carpet — Conakry</p><p class="po-yr">c. 1979</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',10)"><img src="photos/p_londres_garde.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Revue de la Garde d'Honneur — Aéroport de Londres</p><p class="po-cap" data-l="en">Inspecting the Guard of Honour — London Airport</p><p class="po-yr">Novembre 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',11)"><img src="photos/p_washington_embassy.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">À l'Ambassade de Guinée à Washington</p><p class="po-cap" data-l="en">At the Guinean Embassy in Washington</p><p class="po-yr">c. 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',12)"><img src="photos/p_enfant.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Serrant la main d'un enfant — visite aux États-Unis</p><p class="po-cap" data-l="en">Shaking hands with a child — visit to the United States</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',13)"><img src="photos/p_diplome1.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Réception d'un diplôme honorifique — North Carolina College</p><p class="po-cap" data-l="en">Receiving honorary degree — North Carolina College</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('diplomatie',14)"><img src="photos/p_us_nuit.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Arrivée nocturne aux États-Unis</p><p class="po-cap" data-l="en">Night arrival in the United States</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+    </div>
+  </div>
+
+  <div class="gsec" id="tab-afrique">
+    <div class="pgrid w3">
+      <div class="pc p43" onclick="openLb('afrique',0)"><img src="photos/p_nasser.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Gamal Abdel Nasser — Caire</p><p class="po-cap" data-l="en">With Gamal Abdel Nasser — Cairo</p><p class="po-yr">c. 1965</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',1)"><img src="photos/p_castro_havane.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Fidel Castro — Université de La Havane</p><p class="po-cap" data-l="en">With Fidel Castro — University of Havana</p><p class="po-yr">c. 1960</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',2)"><img src="photos/p_castro_conakry.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Fidel Castro — revue militaire à Conakry</p><p class="po-cap" data-l="en">With Fidel Castro — military review in Conakry</p><p class="po-yr">c. 1972</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',3)"><img src="photos/p_senghor.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Avec Léopold Sédar Senghor — visite au Sénégal</p><p class="po-cap" data-l="en">With Léopold Sédar Senghor — visit to Senegal</p><p class="po-yr">Mai 1963</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',4)"><img src="photos/p_signature.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Signature d'un accord panafricain</p><p class="po-cap" data-l="en">Signing a pan-African agreement</p><p class="po-yr">c. 1963</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',5)"><img src="photos/p_timbres.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Timbres « Afrique en Marche » — République de Guinée</p><p class="po-cap" data-l="en">Stamps "Africa on the March" — Republic of Guinea</p><p class="po-yr">c. 1965</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('afrique',6)"><img src="photos/p_giscard_portrait.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Giscard d'Estaing devant le portrait de Sékou Touré</p><p class="po-cap" data-l="en">Giscard d'Estaing before Sékou Touré's portrait</p><p class="po-yr">1978</p><p class="po-cr">© Getty Images</p></div></div>
+    </div>
+  </div>
+
+  <div class="gsec" id="tab-guinee">
+    <div class="pgrid w3">
+      <div class="pc p43" onclick="openLb('guinee',0)"><img src="photos/p_discours_juancarlos.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Discours devant les Rois d'Espagne — tribune présidentielle, Conakry</p><p class="po-cap" data-l="en">Speech before the Spanish Royals — presidential tribune, Conakry</p><p class="po-yr">1979</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('guinee',1)"><img src="photos/p_pionniers.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Brigade nationale des Pionniers de Guinée — Branche Cadets Guevara</p><p class="po-cap" data-l="en">National Brigade of Pioneers of Guinea — Guevara Cadets</p><p class="po-yr">c. 1980</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('guinee',2)"><img src="photos/p_horoya.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Soldats lisant Horoya — annonce du décès du Président</p><p class="po-cap" data-l="en">Soldiers reading Horoya — announcement of the President's death</p><p class="po-yr">Mars 1984</p><p class="po-cr">© Getty Images</p></div></div>
+    </div>
+  </div>
+
+  <div class="gsec" id="tab-famille">
+    <div class="pgrid w3">
+      <div class="pc p34" onclick="openLb('famille',0)"><img src="photos/p_andree.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Hadja Andrée Touré — Première Dame de Guinée</p><p class="po-cap" data-l="en">Hadja Andrée Touré — First Lady of Guinea</p><p class="po-yr">1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('famille',1)"><img src="photos/p_andree_couple.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Ahmed Sékou Touré et Andrée Touré en visite officielle</p><p class="po-cap" data-l="en">Ahmed Sékou Touré and Andrée Touré on official visit</p><p class="po-yr">c. 1960</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('famille',2)"><img src="photos/p_andree_londres.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Sékou Touré avec Andrée — sortie à Londres</p><p class="po-cap" data-l="en">Sékou Touré with Andrée — outing in London</p><p class="po-yr">Novembre 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('famille',3)"><img src="photos/p_londres_hotel.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Quittant le Claridge's Hotel — Londres</p><p class="po-cap" data-l="en">Leaving Claridge's Hotel — London</p><p class="po-yr">Novembre 1959</p><p class="po-cr">© Getty Images</p></div></div>
+      <div class="pc p43" onclick="openLb('famille',4)"><img src="photos/img11.jpg" alt=""><div class="po"><p class="po-cap" data-l="fr">Sékou Touré et Andrée Touré lors d'un gala officiel</p><p class="po-cap" data-l="en">Sékou Touré and Andrée Touré at an official gala</p><p class="po-yr">c. 1960</p><p class="po-cr">© Getty Images</p></div></div>
+    </div>
+  </div>
+
+  <p class="g-note" data-l="fr">Photographies issues des archives <a href="https://www.gettyimages.fr" target="_blank">Getty Images</a> et de <a href="https://commons.wikimedia.org/wiki/Category:Ahmed_S%C3%A9kou_Tour%C3%A9" target="_blank">Wikimedia Commons</a>. Utilisées à des fins documentaires et éducatives. La galerie s'enrichira des archives privées de la famille.</p>
+  <p class="g-note" data-l="en">Photographs from <a href="https://www.gettyimages.com" target="_blank">Getty Images</a> and <a href="https://commons.wikimedia.org/wiki/Category:Ahmed_S%C3%A9kou_Tour%C3%A9" target="_blank">Wikimedia Commons</a>. Used for documentary and educational purposes. The gallery will be enriched with private family archives.</p>
+</div>
+</section>
+
+<div class="lbox" id="lightbox" onclick="closeBg(event)">
+  <button class="lb-x" onclick="closeLb()">✕ <span data-l="fr" class="i">Fermer</span><span data-l="en" class="i">Close</span></button>
+  <div class="lb-in">
+    <img id="lb-img" src="" alt="">
+    <p class="lb-cap" id="lb-cap"></p>
+    <p class="lb-cr" id="lb-cr"></p>
+    <div class="lb-nav">
+      <button class="lb-btn" onclick="prev()">← <span data-l="fr" class="i">Préc.</span><span data-l="en" class="i">Prev.</span></button>
+      <button class="lb-btn" onclick="next()"><span data-l="fr" class="i">Suiv.</span><span data-l="en" class="i">Next</span> →</button>
+    </div>
+    <p class="lb-ct" id="lb-ct"></p>
+  </div>
+</div>
+
+<section id="quotes">
+<div class="wrap">
+  <div class="sh"><span class="sn">03</span><h2 class="st" data-l="fr">Citations</h2><h2 class="st" data-l="en">Quotes</h2></div>
+  <div class="qfs">
+    <button class="qf on" onclick="fq('all',this)"><span data-l="fr" class="i">Toutes</span><span data-l="en" class="i">All</span></button>
+    <button class="qf" onclick="fq('liberte',this)"><span data-l="fr" class="i">Liberté</span><span data-l="en" class="i">Freedom</span></button>
+    <button class="qf" onclick="fq('dignite',this)"><span data-l="fr" class="i">Dignité</span><span data-l="en" class="i">Dignity</span></button>
+    <button class="qf" onclick="fq('afrique',this)"><span data-l="fr" class="i">Afrique</span><span data-l="en" class="i">Africa</span></button>
+    <button class="qf" onclick="fq('peuple',this)"><span data-l="fr" class="i">Peuple</span><span data-l="en" class="i">People</span></button>
+    <button class="qf" onclick="fq('culture',this)"><span data-l="fr" class="i">Culture</span><span data-l="en" class="i">Culture</span></button>
+  </div>
+  <div class="qg">
+    <div class="qc" data-theme="liberte"><p class="qt" data-l="fr">« Nous préférons la Pauvreté dans la Liberté à la Richesse dans l'esclavage. »</p><p class="qt" data-l="en">"We prefer poverty in freedom to riches in slavery."</p><div class="qm"><span class="qs" data-l="fr">Discours du 25 août 1958</span><span class="qs" data-l="en">Speech of August 25, 1958</span><span class="qth" data-l="fr">Liberté</span><span class="qth" data-l="en">Freedom</span></div></div>
+    <div class="qc" data-theme="dignite"><p class="qt" data-l="fr">« Il n'y a pas de Dignité sans Liberté, car tout assujettissement, toute contrainte imposée et subie dégrade celui sur qui elle pèse. »</p><p class="qt" data-l="en">"There is no Dignity without Freedom, for all subjugation, all imposed and endured constraint, degrades the one on whom it weighs."</p><div class="qm"><span class="qs" data-l="fr">Discours du 25 août 1958</span><span class="qs" data-l="en">Speech of August 25, 1958</span><span class="qth" data-l="fr">Dignité</span><span class="qth" data-l="en">Dignity</span></div></div>
+    <div class="qc" data-theme="liberte"><p class="qt" data-l="fr">« La Liberté, c'est le privilège de tout homme, le droit naturel de toute société ou de tout peuple. »</p><p class="qt" data-l="en">"Freedom is the privilege of every man, the natural right of every society or every people."</p><div class="qm"><span class="qs" data-l="fr">Discours du 25 août 1958</span><span class="qs" data-l="en">Speech of August 25, 1958</span><span class="qth" data-l="fr">Liberté</span><span class="qth" data-l="en">Freedom</span></div></div>
+    <div class="qc" data-theme="afrique"><p class="qt" data-l="fr">« La Guinée n'est pas seulement cette entité géographique que les hasards de l'Histoire ont délimitée, c'est aussi une part vive de l'Afrique, un morceau de ce continent qui palpite, sent, agit et pense. »</p><p class="qt" data-l="en">"Guinea is not only the geographic entity that History has delimited; it is also a living part of Africa, a piece of this continent that throbs, feels, acts and thinks."</p><div class="qm"><span class="qs" data-l="fr">Discours du 25 août 1958</span><span class="qs" data-l="en">Speech of August 25, 1958</span><span class="qth" data-l="fr">Afrique</span><span class="qth" data-l="en">Africa</span></div></div>
+    <div class="qc" data-theme="afrique"><p class="qt" data-l="fr">« L'unité de l'Afrique, c'est le pouvoir de 250 millions d'hommes animés d'une même volonté et allant d'un même pas vers des objectifs communs. »</p><p class="qt" data-l="en">"The unity of Africa is the power of 250 million people driven by a common will and moving together towards common goals."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Afrique</span><span class="qth" data-l="en">Africa</span></div></div>
+    <div class="qc" data-theme="culture"><p class="qt" data-l="fr">« La culture est le bien suprême de l'humanité et elle est le bien commun à tous les hommes. »</p><p class="qt" data-l="en">"Culture is the supreme good of humanity and it is the common good of all people."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Culture</span><span class="qth" data-l="en">Culture</span></div></div>
+    <div class="qc" data-theme="peuple"><p class="qt" data-l="fr">« L'ambition suprême de notre peuple et de notre Parti est de demeurer constamment un peuple et un Parti conscients, utiles et dignes, résolument engagés dans le combat d'édification du bien-être populaire. »</p><p class="qt" data-l="en">"The supreme ambition of our people and our Party is to remain constantly a people and a Party that is conscious, useful and dignified, resolutely engaged in the struggle to build popular well-being."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Peuple</span><span class="qth" data-l="en">People</span></div></div>
+    <div class="qc" data-theme="liberte"><p class="qt" data-l="fr">« La Révolution ne s'importe ni ne se donne en cadeau. Elle est une réalité vivante qui se traduit dans la pensée, la conscience et l'action résolue de tous ceux qui la font. »</p><p class="qt" data-l="en">"Revolution is neither imported nor given as a gift. It is a living reality that manifests itself in the thought, consciousness and resolute action of all those who make it."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Liberté</span><span class="qth" data-l="en">Freedom</span></div></div>
+    <div class="qc" data-theme="culture"><p class="qt" data-l="fr">« L'art est un moyen pour l'homme, un moyen pour la société, donc un moyen pour notre peuple et notre Révolution. »</p><p class="qt" data-l="en">"Art is a means for humanity, a means for society, therefore a means for our people and our Revolution."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Culture</span><span class="qth" data-l="en">Culture</span></div></div>
+    <div class="qc" data-theme="peuple"><p class="qt" data-l="fr">« Dire la vérité, c'est vouloir la réussite ; dénoncer les insuffisances, combattre les défauts, c'est accroître les chances de succès de notre Révolution. »</p><p class="qt" data-l="en">"Speaking the truth is wanting success; denouncing shortcomings, fighting faults, is increasing the chances of success of our Revolution."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Peuple</span><span class="qth" data-l="en">People</span></div></div>
+    <div class="qc" data-theme="afrique"><p class="qt" data-l="fr">« Nous percevons le caractère irrésistible et irréversible du mouvement d'émancipation des peuples animés d'une conscience révolutionnaire et armés d'une volonté de progrès. »</p><p class="qt" data-l="en">"We perceive the irresistible and irreversible character of the emancipation movement of peoples animated by a revolutionary consciousness and armed with a will for progress."</p><div class="qm"><span class="qs">L'Afrique en Marche, Tome X</span><span class="qth" data-l="fr">Afrique</span><span class="qth" data-l="en">Africa</span></div></div>
+    <div class="qc" data-theme="dignite"><p class="qt" data-l="fr">« Loin d'être un élément de discorde, nos patriotismes respectifs constituent plutôt le sûr garant d'un rapprochement et d'un attachement durables. »</p><p class="qt" data-l="en">"Far from being an element of discord, our respective patriotisms constitute rather the sure guarantee of a lasting rapprochement and attachment."</p><div class="qm"><span class="qs" data-l="fr">Saifoulaye Diallo, 25 août 1958</span><span class="qs" data-l="en">Saifoulaye Diallo, August 25, 1958</span><span class="qth" data-l="fr">Dignité</span><span class="qth" data-l="en">Dignity</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="speech">
+<div class="wrap">
+  <div class="sh"><span class="sn">04</span><h2 class="st" data-l="fr">Le Discours du 25 août 1958</h2><h2 class="st" data-l="en">The Speech of August 25, 1958</h2></div>
+  <div class="sp-meta">
+    <div><div class="sp-day">25</div><div class="sp-mo" data-l="fr">Août 1958</div><div class="sp-mo" data-l="en">August 1958</div></div>
+    <div class="sp-info">
+      <h3 data-l="fr">Allocution devant le Général de Gaulle</h3><h3 data-l="en">Address before General de Gaulle</h3>
+      <p data-l="fr">Conakry, Palais du Gouvernement</p><p data-l="en">Conakry, Government Palace</p>
+      <p data-l="fr">33 jours avant le vote du Non · 38 jours avant l'Indépendance</p><p data-l="en">33 days before the No vote · 38 days before Independence</p>
+      <span class="sp-tag" data-l="fr">Sékou Touré &amp; Saifoulaye Diallo</span><span class="sp-tag" data-l="en">Sékou Touré &amp; Saifoulaye Diallo</span>
+    </div>
+  </div>
+  <div class="sp-body">
+    <h3 class="sp-st" data-l="fr">I. Discours de bienvenue — Diallo Saifoulaye, Président de l'Assemblée Territoriale</h3>
+    <h3 class="sp-st" data-l="en">I. Welcome address — Diallo Saifoulaye, President of the Territorial Assembly</h3>
+    <div class="sp-hl" data-l="fr">« Loin d'être un élément de discorde, nos patriotismes respectifs constituent plutôt le sûr garant d'un rapprochement et d'un attachement durables, le facteur encourageant d'une alliance sincère et réelle, le motif rassurant d'une Association libre et fraternelle à bases égalitaires. »</div>
+    <div class="sp-hl" data-l="en">"Far from being an element of discord, our respective patriotisms constitute rather the sure guarantee of a lasting rapprochement and attachment, the encouraging factor of a sincere and real alliance, the reassuring reason for a free and fraternal Association on an equal basis."</div>
+    <p data-l="fr">Nous vous accueillons avec émotion parce que nous réalisons parfaitement que nous franchissons une étape capitale de notre histoire, un tournant décisif dans nos relations avec la France. Nous sommes très à l'aise dans cette position, persuadés d'avance d'être bien compris par notre Hôte, le Général de Gaulle, le fervent patriote, l'homme des mieux indiqués pour admettre que d'autres puissent éprouver pour leur Pays les mêmes sentiments qu'il éprouve lui-même vis-à-vis de la France.</p>
+    <p data-l="en">We welcome you with emotion because we fully realize that we are crossing a capital stage in our history, a decisive turning point in our relations with France. We are very comfortable in this position, persuaded of being well understood by our Host, General de Gaulle, the fervent patriot, the man best placed to understand that others may feel for their Country the same sentiments he himself feels towards France.</p>
+    <h3 class="sp-st" data-l="fr">II. Allocution de Sékou Touré, Président du Conseil de Gouvernement</h3>
+    <h3 class="sp-st" data-l="en">II. Address by Sékou Touré, President of the Government Council</h3>
+    <p data-l="fr">L'épanouissement des valeurs de l'Afrique est freiné, moins à cause de ceux qui les ont façonnées, qu'à cause des structures économiques et politiques héritées du régime colonial en déséquilibre avec ses aspirations d'avenir. C'est pourquoi nous voulons corriger, non par des réformes timides et partielles, mais fondamentalement, ces structures afin que le mouvement de nos sociétés suive la ligne ascendante d'une constante évolution.</p>
+    <p data-l="en">The blossoming of Africa's values is impeded less by those who shaped them than by the economic and political structures inherited from the colonial regime — structures out of balance with its aspirations for the future. That is why we want to correct, not through timid and partial reforms, but fundamentally, these structures.</p>
+    <div class="sp-hl" data-l="fr">« Nous avons un premier et indispensable besoin, celui de notre Dignité. Or, il n'y a pas de Dignité sans Liberté, car tout assujettissement, toute contrainte imposée et subie dégrade celui sur qui elle pèse, lui retire une part de sa qualité d'Homme. <strong>Nous préférons la Pauvreté dans la Liberté à la Richesse dans l'esclavage.</strong> »</div>
+    <div class="sp-hl" data-l="en">"We have a first and indispensable need: that of our Dignity. Now, there is no Dignity without Freedom, for all subjugation, all imposed and endured constraint, degrades the one on whom it weighs. <strong>We prefer Poverty in Freedom to Riches in slavery.</strong>"</div>
+    <p data-l="fr">Notre option fondamentale réside dans la <strong>décolonisation intégrale de l'Afrique</strong> : ses hommes, son économie, son organisation administrative, en vue de bâtir une Communauté Franco-Africaine solide dont la pérennité sera d'autant plus garantie qu'elle n'aura plus dans son sein des phénomènes d'injustice ou de discrimination.</p>
+    <p data-l="en">Our fundamental option resides in the <strong>complete decolonisation of Africa</strong> — its people, its economy, its administrative organisation — with a view to building a solid Franco-African Community whose permanence will be guaranteed by the absence of injustice or discrimination.</p>
+    <div class="sp-hl" data-l="fr">« La qualité ou plutôt la nouvelle nature des rapports entre la France et ses anciennes colonies devra être déterminée sans paternalisme et sans duperie. En disant NON de manière catégorique à tout aménagement du régime colonial, nous entendons sauver les engagements de la nouvelle Communauté Franco-Africaine. »<br><br>— <em>Vive la Guinée ! Vive la France !</em></div>
+    <div class="sp-hl" data-l="en">"The new nature of relations between France and its former colonies must be determined without paternalism and without deceit. In saying NO categorically to any arrangement of the colonial regime, we intend to preserve the commitments of the new Franco-African Community."<br><br>— <em>Long live Guinea! Long live France!</em></div>
+  </div>
+</div>
+</section>
+
+<section id="lib">
+<div class="wrap">
+  <div class="sh"><span class="sn">05</span><h2 class="st" data-l="fr">Bibliothèque</h2><h2 class="st" data-l="en">Library</h2></div>
+  <div class="lg">
+    <div class="lc"><div class="l-sp"></div><p class="l-t" data-l="fr">L'Afrique en Marche — Tome X</p><p class="l-t" data-l="en">Africa on the March — Volume X</p><p class="l-sub" data-l="fr">Rapports politiques du VIe Congrès du PDG (1962). Politique intérieure, culture, économie, politique extérieure.</p><p class="l-sub" data-l="en">Political reports of the 6th PDG Congress (1962). Domestic policy, culture, economics, foreign policy.</p><p class="l-ed">L'Harmattan</p><span class="l-st ok" data-l="fr">Disponible</span><span class="l-st ok" data-l="en">Available</span></div>
+    <div class="lc"><div class="l-sp"></div><p class="l-t" data-l="fr">L'Afrique en Marche — Tomes I–IX</p><p class="l-t" data-l="en">Africa on the March — Volumes I–IX</p><p class="l-sub" data-l="fr">L'ensemble de la pensée politique, économique et culturelle sur plus de vingt ans.</p><p class="l-sub" data-l="en">The complete political, economic and cultural thought over more than twenty years.</p><p class="l-ed">L'Harmattan</p><span class="l-st soon" data-l="fr">Prochainement</span><span class="l-st soon" data-l="en">Coming soon</span></div>
+    <div class="lc"><div class="l-sp"></div><p class="l-t" data-l="fr">Discours &amp; interventions (1958–1984)</p><p class="l-t" data-l="en">Speeches &amp; Addresses (1958–1984)</p><p class="l-sub" data-l="fr">Dont le discours historique du 25 août 1958 et les allocutions devant l'ONU.</p><p class="l-sub" data-l="en">Including the historic speech of August 25, 1958 and addresses before the UN.</p><p class="l-ed" data-l="fr">Archives nationales de Guinée</p><p class="l-ed" data-l="en">National Archives of Guinea</p><span class="l-st ok" data-l="fr">Partiellement disponible</span><span class="l-st ok" data-l="en">Partially available</span></div>
+    <div class="lc"><div class="l-sp"></div><p class="l-t" data-l="fr">Textes fondateurs du PDG</p><p class="l-t" data-l="en">PDG Founding Texts</p><p class="l-sub" data-l="fr">Statuts, manifestes et rapports des Congrès nationaux depuis 1947.</p><p class="l-sub" data-l="en">Statutes, manifestos and national Congress reports since 1947.</p><p class="l-ed">Archives PDG</p><span class="l-st soon" data-l="fr">En numérisation</span><span class="l-st soon" data-l="en">Being digitised</span></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><p class="f-br">Ahmed Sékou Touré</p><p class="f-de" data-l="fr">Plateforme d'archives numériques dédiée à la préservation et à la diffusion de l'œuvre et de la pensée du Père de l'indépendance guinéenne.</p><p class="f-de" data-l="en">Digital archive platform dedicated to preserving and disseminating the work and thought of the Father of Guinean independence.</p></div>
+      <div><p class="f-h" data-l="fr">Navigation</p><p class="f-h" data-l="en">Navigation</p><ul class="f-ul"><li><a href="#bio" data-l="fr">Biographie</a><a href="#bio" data-l="en">Biography</a></li><li><a href="#galerie" data-l="fr">Galerie</a><a href="#galerie" data-l="en">Gallery</a></li><li><a href="#quotes" data-l="fr">Citations</a><a href="#quotes" data-l="en">Quotes</a></li><li><a href="#speech" data-l="fr">Discours 1958</a><a href="#speech" data-l="en">1958 Speech</a></li><li><a href="#lib" data-l="fr">Bibliothèque</a><a href="#lib" data-l="en">Library</a></li></ul></div>
+      <div><p class="f-h" data-l="fr">À propos</p><p class="f-h" data-l="en">About</p><ul class="f-ul"><li><a href="#" data-l="fr">Le projet</a><a href="#" data-l="en">The project</a></li><li><a href="#" data-l="fr">Contribuer</a><a href="#" data-l="en">Contribute</a></li><li><a href="#" data-l="fr">Contact</a><a href="#" data-l="en">Contact</a></li></ul></div>
+    </div>
+    <div class="fb"><p class="f-cp">© 2025 Archives Ahmed Sékou Touré</p><span class="f-mv">MVP — Version 0.4</span></div>
+  </div>
+</footer>
+
+<script>
+const GD = {
+  portraits:[
+    {src:'photos/p_souriant_micro.jpg',fr:'Conférence de presse — sourire et assurance, c. 1970',en:'Press conference — confidence and ease, c. 1970',cr:'© Getty Images'},
+    {src:'photos/p_portrait_boubou.jpg',fr:'Portrait officiel en boubou, c. 1960',en:'Official portrait in boubou, c. 1960',cr:'© Getty Images'},
+    {src:'photos/p_portrait_debout.jpg',fr:'Portrait debout — Conakry, c. 1962',en:'Standing portrait — Conakry, c. 1962',cr:'© Getty Images'},
+    {src:'photos/p_portrait_micro.jpg',fr:'Portrait au micro — regard intense, c. 1959',en:'Portrait at the microphone — intense gaze, c. 1959',cr:'© Getty Images'},
+    {src:'photos/p_independance58.jpg',fr:'Proclamation de l\'indépendance — 4 octobre 1958',en:'Proclamation of independence — October 4, 1958',cr:'© Getty Images'},
+    {src:'photos/p_reunion59.jpg',fr:'Réunion gouvernementale — premières semaines, Février 1959',en:'Government meeting — first weeks of independence, February 1959',cr:'© Getty Images'},
+    {src:'photos/img16.jpg',fr:'Portrait jeune en conversation — années 1950',en:'Young portrait in conversation — 1950s',cr:'© Getty Images'},
+    {src:'photos/p_portrait_assis.jpg',fr:'Portrait officiel — début de présidence, c. 1959',en:'Official portrait — early presidency, c. 1959',cr:'© Getty Images'},
+    {src:'photos/p_us_assis.jpg',fr:'Visite aux États-Unis, 1959',en:'Visit to the United States, 1959',cr:'© Getty Images'},
+  ],
+  diplomatie:[
+    {src:'photos/p_kennedy_car.jpg',fr:'Dans la Lincoln de Kennedy — Washington, 1962',en:'In Kennedy\'s Lincoln — Washington, 1962',cr:'© Getty Images'},
+    {src:'photos/p_reagan.jpg',fr:'Avec le Président Reagan — Maison Blanche, 1982',en:'With President Reagan — White House, 1982',cr:'© Getty Images'},
+    {src:'photos/p_mitterrand.jpg',fr:'Avec François Mitterrand — réconciliation franco-guinéenne, 1982',en:'With François Mitterrand — Franco-Guinean reconciliation, 1982',cr:'© Getty Images'},
+    {src:'photos/p_giscard_face.jpg',fr:'Avec Valéry Giscard d\'Estaing — visite officielle, 1978',en:'With Valéry Giscard d\'Estaing — official visit, 1978',cr:'© Getty Images'},
+    {src:'photos/p_juancarlos_avion.jpg',fr:'Accueil du Roi Juan Carlos d\'Espagne à Conakry, 1979',en:'Welcoming King Juan Carlos of Spain in Conakry, 1979',cr:'© Getty Images'},
+    {src:'photos/p_juancarlos_diner.jpg',fr:'Dîner de gala avec le Roi Juan Carlos et la Reine Sofia, 1979',en:'State dinner with King Juan Carlos and Queen Sofia, 1979',cr:'© Getty Images'},
+    {src:'photos/p_hussein.jpg',fr:'Avec le Roi Hussein de Jordanie — Amman, 1964',en:'With King Hussein of Jordan — Amman, 1964',cr:'© Getty Images'},
+    {src:'photos/p_nehru.jpg',fr:'Avec Jawaharlal Nehru — Premier ministre de l\'Inde, 1959',en:'With Jawaharlal Nehru — Prime Minister of India, 1959',cr:'© Getty Images'},
+    {src:'photos/p_delegation_paris.jpg',fr:'Délégation guinéenne — réunion officielle à Paris, 1958',en:'Guinean delegation at official meeting — Paris, 1958',cr:'© Getty Images'},
+    {src:'photos/p_tapis_rouge.jpg',fr:'Revue des troupes sur tapis rouge — Conakry, c. 1979',en:'Troop review on red carpet — Conakry, c. 1979',cr:'© Getty Images'},
+    {src:'photos/p_londres_garde.jpg',fr:'Revue de la Garde d\'Honneur — Aéroport de Londres, Novembre 1959',en:'Inspecting the Guard of Honour — London Airport, November 1959',cr:'© Getty Images'},
+    {src:'photos/p_washington_embassy.jpg',fr:'À l\'Ambassade de Guinée à Washington, c. 1959',en:'At the Guinean Embassy in Washington, c. 1959',cr:'© Getty Images'},
+    {src:'photos/p_enfant.jpg',fr:'Serrant la main d\'un enfant — visite aux États-Unis, 1959',en:'Shaking hands with a child — visit to the United States, 1959',cr:'© Getty Images'},
+    {src:'photos/p_diplome1.jpg',fr:'Réception d\'un diplôme honorifique — North Carolina College, 1959',en:'Receiving honorary degree — North Carolina College, 1959',cr:'© Getty Images'},
+    {src:'photos/p_us_nuit.jpg',fr:'Arrivée nocturne aux États-Unis, 1959',en:'Night arrival in the United States, 1959',cr:'© Getty Images'},
+  ],
+  afrique:[
+    {src:'photos/p_nasser.jpg',fr:'Avec Gamal Abdel Nasser — Caire, c. 1965',en:'With Gamal Abdel Nasser — Cairo, c. 1965',cr:'© Getty Images'},
+    {src:'photos/p_castro_havane.jpg',fr:'Avec Fidel Castro — Université de La Havane, c. 1960',en:'With Fidel Castro — University of Havana, c. 1960',cr:'© Getty Images'},
+    {src:'photos/p_castro_conakry.jpg',fr:'Avec Fidel Castro — revue militaire à Conakry, c. 1972',en:'With Fidel Castro — military review in Conakry, c. 1972',cr:'© Getty Images'},
+    {src:'photos/p_senghor.jpg',fr:'Avec Léopold Sédar Senghor — visite au Sénégal, Mai 1963',en:'With Léopold Sédar Senghor — visit to Senegal, May 1963',cr:'© Getty Images'},
+    {src:'photos/p_signature.jpg',fr:'Signature d\'un accord panafricain, c. 1963',en:'Signing a pan-African agreement, c. 1963',cr:'© Getty Images'},
+    {src:'photos/p_timbres.jpg',fr:'Timbres « Afrique en Marche » — République de Guinée',en:'Stamps "Africa on the March" — Republic of Guinea',cr:'© Getty Images'},
+    {src:'photos/p_giscard_portrait.jpg',fr:'Giscard d\'Estaing devant le portrait de Sékou Touré, 1978',en:'Giscard d\'Estaing before Sékou Touré\'s portrait, 1978',cr:'© Getty Images'},
+  ],
+  guinee:[
+    {src:'photos/p_discours_juancarlos.jpg',fr:'Discours devant les Rois d\'Espagne — Conakry, 1979',en:'Speech before the Spanish Royals — Conakry, 1979',cr:'© Getty Images'},
+    {src:'photos/p_pionniers.jpg',fr:'Brigade nationale des Pionniers de Guinée — Branche Cadets Guevara',en:'National Brigade of Pioneers of Guinea — Guevara Cadets',cr:'© Getty Images'},
+    {src:'photos/p_horoya.jpg',fr:'Soldats lisant Horoya — annonce du décès du Président, Mars 1984',en:'Soldiers reading Horoya — announcement of the President\'s death, March 1984',cr:'© Getty Images'},
+  ],
+  famille:[
+    {src:'photos/p_andree.jpg',fr:'Hadja Andrée Touré — Première Dame de Guinée, 1959',en:'Hadja Andrée Touré — First Lady of Guinea, 1959',cr:'© Getty Images'},
+    {src:'photos/p_andree_couple.jpg',fr:'Ahmed Sékou Touré et Andrée Touré en visite officielle',en:'Ahmed Sékou Touré and Andrée Touré on official visit',cr:'© Getty Images'},
+    {src:'photos/p_andree_londres.jpg',fr:'Sékou Touré avec Andrée — sortie à Londres, Novembre 1959',en:'Sékou Touré with Andrée — outing in London, November 1959',cr:'© Getty Images'},
+    {src:'photos/p_londres_hotel.jpg',fr:'Quittant le Claridge\'s Hotel — Londres, Novembre 1959',en:'Leaving Claridge\'s Hotel — London, November 1959',cr:'© Getty Images'},
+    {src:'photos/img11.jpg',fr:'Sékou Touré et Andrée Touré lors d\'un gala officiel',en:'Sékou Touré and Andrée Touré at an official gala',cr:'© Getty Images'},
+  ]
+};
+let cTab='portraits', cIdx=0;
+const lang=()=>document.body.className;
+function showTab(t,btn){cTab=t;document.querySelectorAll('.gsec').forEach(s=>s.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.querySelectorAll('.gtab').forEach(b=>b.classList.remove('on'));btn.classList.add('on')}
+function openLb(t,i){cTab=t;cIdx=i;renderLb();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
+function renderLb(){const p=GD[cTab][cIdx];const l=lang();document.getElementById('lb-img').src=p.src;document.getElementById('lb-cap').textContent=l==='fr'?p.fr:p.en;document.getElementById('lb-cr').textContent=p.cr;document.getElementById('lb-ct').textContent=(cIdx+1)+' / '+GD[cTab].length}
+function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+function closeBg(e){if(e.target===document.getElementById('lightbox'))closeLb()}
+function next(){cIdx=(cIdx+1)%GD[cTab].length;renderLb()}
+function prev(){cIdx=(cIdx-1+GD[cTab].length)%GD[cTab].length;renderLb()}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+function setL(l,btn){document.body.className=l;document.querySelectorAll('.lb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(document.getElementById('lightbox').classList.contains('open'))renderLb()}
+function fq(t,btn){document.querySelectorAll('.qf').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.qc').forEach(c=>{c.style.display=(t==='all'||c.dataset.theme===t)?'':'none'})}
+</script>
+</body>
+</html>
